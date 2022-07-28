@@ -46,7 +46,9 @@ $$\mu_i \sim N(\mu_p, \sigma_p)$$
 and the parameters priors will be given by (example)
 
 $$\sigma  \sim U[0,10]$$
+
 $$\mu_p    \sim U[0,100]$$
+
 $$\sigma_p \sim U[0,10]$$
 
 The campaign `ROI` then will be given by:
