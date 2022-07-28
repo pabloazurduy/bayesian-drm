@@ -44,7 +44,8 @@ where our $\mu_i$ will be drawn from a population normal:
 $$\mu_i \sim N(\mu_p, \sigma_p)$$
 
 and the parameters priors will be given by (example)
-$$ \sigma  \sim U[0,10]$$
+
+$$\sigma  \sim U[0,10]$$
 $$\mu_p    \sim U[0,100]$$
 $$\sigma_p \sim U[0,10]$$
 
