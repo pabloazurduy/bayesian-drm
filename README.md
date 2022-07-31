@@ -21,11 +21,7 @@ The main hypothesis that the `Stardust` shop has is that there is a _"costumer `
 
 ## The proposed model 
 
-The problem from `Stardust` resembles a lot the problem exposed in the [paper][1], we will, therefore, use a very similar model. First, we are going to talk about the **cost curve**. The **cost curve** is a concept introduced in the paper to explain how the heterogeneity of the "treatment effect" on the clients can lead to an improvement in performance. 
-
-    [TODO:add cost curve explanation]
-
-Let's assume that the costumer demand $Y_i$ will be given by the following formula:
+The problem from `Stardust` resembles a lot the problem exposed in the [paper][1], we will, therefore, use a very similar model. Let's assume that the costumer demand $Y_i$ will be given by the following formula:
 
 $$Y_i(D) = \tau^{i}_{d}*D + \tau^{i}_{0}$$
 
