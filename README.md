@@ -51,7 +51,18 @@ The campaign `ROI` then will be given by:
 
 $$ROI_c = \frac{\sum_{i \in (D_i=1)}{Y_i(D)} - \sum_{j \in D=0}{Y_j(0)}}{D} $$
 
-Which is an observable variable (do we need it tho ? Because we have the shopping register $Y_i$ ??)
+Which is an observable variable (this is useful for the validation of the running experiment), but given that we assume full information from the payment method we will not need it as a fitting parameter.
+
+## Simulation Results 
+
+To simulate our data we use the following spend formula:
+
+$$Y_i(D) = truncnormal(a, b, \mu_i = \tau^{i}_{d}*D_i + \tau^{i}_{0})* \mathbb{1}_{truncnormal(D)>trunc\_val} $$
+
+where $a$ and $b$ are the lower and upper trunc limits for the `truncnormal` distribution (respectively). we define those limits as `a = 0`, `b = 30` which will meant that the weekely billings will be between `$0 USD` to `$30 USD`. Then we only keep the values where the spend is higher than a min threshold for the billing amount (this will provide us a 0 inflated interval). Finally the spend results are plotted in the following figure:
+
+<img src="spend_data.png" >
+
 
 [1]: <http://proceedings.mlr.press/v104/du19a/du19a.pdf> "Improve User Retention with Causal Learning"
 [2]: <https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers> "Bayesian Methods for Hackers"
