@@ -37,3 +37,7 @@ spend[spend <= spend_pop_trunc] = 0
 # import matplotlib.pyplot as plt
 # plt.hist(spend.flatten(), bins='auto')
 
+
+# create bayesian model based on the spend data 
+# each row represent a client from the panel, and each 
+# column represent each week 
