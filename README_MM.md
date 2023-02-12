@@ -55,9 +55,9 @@ Finally we fit all this parameters using MCMC.
 
 $$max_{X,Y} \sum_{i}{T_i(X_i,Y_i, \theta_i)}$$
 
-st. 
+st.
 
-$$burn(X,Y|T_i) = \sum{Y_i[j]} {: argmax(X_i: T_i<X_i)} \leq Budget$$
+$$burn(X,Y|T_i) = \sum{Y_i} * 1_{:X_i=argmax(X_i: T_i<X_i)} \leq Budget$$
 
 
 [1]:<https://en.wikipedia.org/wiki/Monotonic_function>
