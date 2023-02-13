@@ -8,7 +8,7 @@ This is a variance of the promo problem where the mechanic `dxgy` is a number of
 
 These menus can have multiples alternatives (potentially unlimited), the only constraint is that each alternative is unique per each "`dx`" and usually the earnings `gy` are [_monotonically non-decreasing_][1]. 
 
-We need a model that can predict the number of purchases based on the promoted menu to each customer ($T \in IR^{+}$). We have some data of past promotions (menus and one choice menus). 
+We need a model that can predict the number of purchases based on the promoted menu to each customer ( $T \in IR^{+}$ ). We have some data of past promotions (menus and one choice menus). 
 
 Each new alternative has not to increase the probability to "qualify" on each one of the menu tiers, if it is not relevant for a costumer ([IIA][2]) with certain purchase behavior. For example if a customer usually buys 50 cups per month adding a 10 tier should not affect significantly their purchase behavior. Similarly, adding the menu choice of 100 should not affect that much the purchase behavior of the same customer, mainly because is twice as much as the costumer is used to buy. 
 
@@ -27,7 +27,7 @@ $$
 \lambda_i \sim GLM(\theta_i, feat(PY_i(X_i,Y_i,\theta_i)))
 $$
 
-The $PY_i(X_i,Y_i,\theta_i)$ is a representation of the expected "relevant" payments for the client based on the menu ($X_i,Y_i$) and the demographic/behavioral client features $\theta_i$. 
+The $PY_i(X_i,Y_i,\theta_i)$ is a representation of the expected "relevant" payments for the client based on the menu ( $X_i,Y_i$ ) and the demographic/behavioral client features $\theta_i$. 
 
 <p align="center" width="100%">
 <img src="img/pyfunc.png" style="width:400px;" >
@@ -41,23 +41,21 @@ We can use multiple filter distributions $Norm(\mu(\theta_i),\sigma)$, $Triangul
 
 The features in the $GLM(feat(PY_i))$ can be:
 
-1. min 
-2. max 
-3. skew
-4. mean 
-5. P50,P80,P90
-6. var, $\sigma$
-7. ...
+1. min, max, number of offers (?) 
+2. Moments: mean, $\sigma$, $\sigma^2$, skewness, kurtosis 
+3. Quantiles: P50,P80,P90
+4. (discarted) Binned Histograms (defined for certain dx ranges this might be useful in a non-filtered model)
+5. etc
 
 Finally we fit all this parameters using MCMC. 
 
 ¿how we find the optimum promo-menu? 
 
-$$max_{X,Y} \sum_{i}{T_i(X_i,Y_i, \theta_i)}$$
+$$ max_{X,Y} \sum_{i}{T_i(X_i,Y_i, \theta_i)} $$
 
-st.
+st
 
-$$ burn(X,Y|T_i) = \sum{Y_i} * 1_{X_i=argmax(X_i: T_i<X_i)} \leq Budget $$
+$$ burn(X,Y|T_i) = \sum{Y_i} * 1_{X_i=argmax(X_i: T_i \leq X_i)} \leq Budget $$
 
 
 [1]:<https://en.wikipedia.org/wiki/Monotonic_function>
