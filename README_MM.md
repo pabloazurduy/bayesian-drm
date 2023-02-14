@@ -55,7 +55,7 @@ $$ max_{X,Y} \sum_{i}{T_i(X_i,Y_i, \theta_i)} $$
 
 st
 
-$$ burn(X,Y|T_i) = \sum{Y_i} * \mathbb{P}(T_i \geq X_i \land T_i \le X_j )  \leq Budget $$
+$$ burn(X,Y|T_i) = \sum{Y_i} * \mathbb{P}(T_i \geq X_i \land T_i \le X_i[+1] )  \leq Budget $$
 
 
 [1]:<https://en.wikipedia.org/wiki/Monotonic_function>
