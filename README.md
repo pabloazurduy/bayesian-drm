@@ -2,12 +2,12 @@
 bayesian inference DRM model
 
 #### **TLDR**
- Based on the [Uber "Improve User Retention with Causal Learning"][1] we estimate a _"Direct Ranking Model" DRM_  for a promotion problem using a bayesian inference model the heterogeneous treatment effects. We build a simulated dataset and write a simple routine to find the original parameters and create an inferred ranking. 
+ Based on the [Uber "Improve User Retention with Causal Learning"][1] we estimate a _"Direct Ranking Model" DRM_  for a promotion problem using a Bayesian inference model of the heterogeneous treatment effects. We build a simulated dataset and write a simple routine to find the original parameters and create an inferred ranking. 
 
-This model was created with the excuse of applying some contents from the book ["Bayesian Methods for Hackers"][2] and the course ["Statistical Thinking"][3] this is not a real problem, and it was build just with the purpose of learning, however, it's a very common problem in the marketing industry. 
+This model was created with the excuse of applying some contents from the book ["Bayesian Methods for Hackers"][2] and the course ["Statistical Thinking"][3] this is not a real problem, and it was built just with the purpose of learning, however, it's a very common problem in the marketing industry. 
 
 ## Problem Statement 
-In  Uber's [publication][1] they propose an optimization problem about maximize the total return $Y$ (churn) of a promotion based on a heterogeneity model. For the purpose of illustrating we are going to use a different example but with a similar objective. 
+In  Uber's [publication][1] they propose an optimization problem about maximizing the total return $Y$ (churn) of a promotion based on a heterogeneity model. For the purpose of illustrating we are going to use a different example but with a similar objective. 
 
 The `Stardust` coffee shop is a massive coffee chain that has a loyalty program where each costumer has a card that they can use to buy in the store. The `Stardust` loyalty program has a benefit that if you have the `Stardust Wallet` you are eligible for exclusive promotions. These promotions are part of the Marketing budget and their main focus is to maximize the costumers' demand $Y_i$ which in our case will be represented by the amount of spend \$ in coffees that a costumer $i \in C$ will buy certain week. 
 
@@ -25,9 +25,9 @@ The problem from `Stardust` resembles a lot the problem exposed in the [paper][1
 
 $$Y_i(D) = \tau^{i}_{d}*D + \tau^{i}_{0}$$
 
-Were basically we have the simplest way of describing the demand of the costumer $i$. $Y_i$ represents the demand in \$. $D$ is the discount given in \$ (we assume that we already normalized this amount type of discount/promo/etc to the final "burn"), and finally $\tau^{i}_{0}$ that is a variable that represents the "base demand" from the client $i$.   
+Basically, we have the simplest way of describing the demand of the costumer $i$. $Y_i$ represents the demand in \$. $D$ is the discount given in \$ (we assume that we already normalized this amount type of discount/promo/etc to the final "burn"), and finally $\tau^{i}_{0}$ that is a variable that represents the "base demand" from the client $i$.   
 
-We can estimate the client `ROI` using that formula simply applying:
+We can estimate the client `ROI` using that formula by simply applying:
 
 $$ ROI_{i} = \frac{Y_{i}(D) - Y_{i}(0)}{D} = \frac{\tau^{i}_{d}*D + \tau^{i}_{0} - \tau^{i}_{d}*0 - \tau^{i}_{0}}{D} = \tau^{i}_{d} $$
 
@@ -55,11 +55,11 @@ Which is an observable variable (this is useful for the validation of the runnin
 
 ## Simulation Results 
 
-To simulate our data we use the following spend formula:
+To simulate our data we use the following spent formula:
 
 $$Y_{i}(D) = truncnormal(a, b, \mu_{i} = \tau^{i}_{d}*D_{i} + \tau^{i}_{0})* \mathbb{1}_{truncnormal(D)>trunc\_val} $$
 
-where $a$ and $b$ are the lower and upper trunc limits for the `truncnormal` distribution (respectively). we define those limits as `a = 0`, `b = 30` which will meant that the weekely billings will be between `$0 USD` to `$30 USD`. Then we only keep the values where the spend is higher than a min threshold for the billing amount (this will provide us a 0 inflated interval). Finally the spend results are plotted in the following figure:
+where $a$ and $b$ are the lower and upper trunc limits for the `truncnormal` distribution (respectively). we define those limits as `a = 0`, `b = 30` which will meant that the weekly billings will be between `$0 USD` to `$30 USD`. Then we only keep the values where the spend is higher than a min threshold for the billing amount (this will provide us a 0 inflated interval). Finally, the spend results are plotted in the following figure:
 <p align="center" width="100%">
 <img src="img/spend_data.png" style="width:600px;" >
 </p>
