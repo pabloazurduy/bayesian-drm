@@ -23,7 +23,7 @@ The main hypothesis that the `Stardust` shop has is that there is a _"costumer `
 
 The problem from `Stardust` resembles a lot the problem exposed in the [paper][1], we will, therefore, use a very similar model. Let's assume that the costumer demand $Y_i$ will be given by the following formula:
 
-$$Y_i(D) = \tau^{i}_{d}*D + \tau^{i}_{0}$$
+$$Y_{i}(D) = \tau^{i}_{d}*D + \tau^{i}_{0}$$
 
 Basically, we have the simplest way of describing the demand of the costumer $i$. $Y_i$ represents the demand in \$. $D$ is the discount given in \$ (we assume that we already normalized this amount type of discount/promo/etc to the final "burn"), and finally $\tau^{i}_{0}$ that is a variable that represents the "base demand" from the client $i$.   
 
