@@ -29,7 +29,7 @@ Were basically we have the simplest way of describing the demand of the costumer
 
 We can estimate the client `ROI` using that formula simply applying:
 
-$$ROI_i = \frac{Y_i(D) - Y_i(0)}{D} = \frac{\tau^{i}_{d}*D + \tau^{i}_{0} - \tau^{i}_{d}*0 - \tau^{i}_{0}}{D} = \tau^{i}_{d} $$
+$$ROI_{i} = \frac{Y_{i}(D) - Y_{i}(0)}{D} = \frac{\tau^{i}_{d}*D + \tau^{i}_{0} - \tau^{i}_{d}*0 - \tau^{i}_{0}}{D} = \tau^{i}_{d} $$
 
 So basically our `ROI_i` will be represented by `tau_i` ($\tau^{i}_{d}$). We also assume that each client "base demand" will be given by a distribution with parameters that are drawn by a population distribution. Therefore:
 
