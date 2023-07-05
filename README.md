@@ -57,7 +57,7 @@ Which is an observable variable (this is useful for the validation of the runnin
 
 To simulate our data we use the following spend formula:
 
-$$Y_i(D) = truncnormal(a, b, \mu_i = \tau^{i}_{d}*D_i + \tau^{i}_{0})* \mathbb{1}_{truncnormal(D)>trunc\_val} $$
+$$Y_{i}(D) = truncnormal(a, b, \mu_{i} = \tau^{i}_{d}*D_{i} + \tau^{i}_{0})* \mathbb{1}_{truncnormal(D)>trunc\_val} $$
 
 where $a$ and $b$ are the lower and upper trunc limits for the `truncnormal` distribution (respectively). we define those limits as `a = 0`, `b = 30` which will meant that the weekely billings will be between `$0 USD` to `$30 USD`. Then we only keep the values where the spend is higher than a min threshold for the billing amount (this will provide us a 0 inflated interval). Finally the spend results are plotted in the following figure:
 <p align="center" width="100%">
